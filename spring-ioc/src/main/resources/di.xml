@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="user" class="org.maxwell.ioc.bean.User">
+        <property name="name" value="张三"/>
+        <property name="age" value="17"/>
+        <property name="hobbies">
+            <list>
+                <value>足球</value>
+                <value>coding</value>
+                <value>艹逼</value>
+            </list>
+        </property>
+        <property name="roles">
+            <set>
+                <ref bean="role1"/>
+                <ref bean="role2"/>
+                <ref bean="role3"/>
+            </set>
+        </property>
+    </bean>
+
+    <bean id="role1" class="org.maxwell.ioc.bean.Role">
+        <property name="id" value="1"/>
+        <property name="despriction" value="管理员"/>
+        <property name="name" value="administrator"/>
+    </bean>
+    <bean id="role2" class="org.maxwell.ioc.bean.Role">
+        <property name="id" value="2"/>
+        <property name="despriction" value="会员"/>
+        <property name="name" value="VIP"/>
+    </bean>
+    <bean id="role3" class="org.maxwell.ioc.bean.Role">
+        <property name="id" value="3"/>
+        <property name="despriction" value="游客"/>
+        <property name="name" value="tourists"/>
+    </bean>
+
+    <bean id="user1" class="org.maxwell.ioc.bean.User">
+        <constructor-arg name="age" value="22"/>
+        <constructor-arg name="name" value="mdh"/>
+        <constructor-arg name="hobbies">
+            <list>
+                <value>艹逼</value>
+                <value>旅游</value>
+            </list>
+        </constructor-arg>
+        <constructor-arg name="roles" ref="role2"/>
+    </bean>
+
+    <bean id="admin" class="org.maxwell.ioc.bean.Admin" parent="user">
+        <property name="cars">
+            <array>
+                <value>木材1</value>
+                <value>木材2</value>
+                <value>木材3</value>
+            </array>
+        </property>
+
+        <property name="friends">
+            <map>
+                <entry key="user1" value-ref="user"/>
+                <entry key="user2" value-ref="user1"/>
+            </map>
+        </property>
+
+    </bean>
+
+</beans>
