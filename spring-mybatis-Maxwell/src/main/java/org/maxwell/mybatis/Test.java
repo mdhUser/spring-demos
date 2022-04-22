@@ -16,11 +16,8 @@ public class Test {
     public static void main(String[] args) {
 
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig1.class);
-
-
         UserService userService = context.getBean("userService", UserService.class);
         userService.test();
-
 
     }
 
