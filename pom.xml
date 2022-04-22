@@ -11,13 +11,14 @@
         <module>spring-aop-transactional</module>
         <module>spring-xml-anno</module>
         <module>spring-l3Caches</module>
-        <module>spring-mybatis</module>
+        <module>spring-mybatis-Maxwell</module>
         <module>spring-cglib</module>
         <module>spring-jdkproxy</module>
         <module>spring-scan</module>
         <module>spring-mvc</module>
         <module>spring-ioc</module>
         <module>spring-bean-lifecycle</module>
+        <module>spring-bean-anno-mybatis</module>
     </modules>
     <packaging>pom</packaging>
     <name>spring-demos</name>
@@ -36,6 +37,15 @@
             <version>4.13</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- spring-test -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>5.3.19</version>
+            <scope>test</scope>
+        </dependency>
+
 
         <!--spring-context -->
         <dependency>
