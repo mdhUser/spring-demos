@@ -109,5 +109,12 @@
             <version>8.0.28</version>
         </dependency>
 
+        <!--fastjson-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.78</version>
+        </dependency>
+
     </dependencies>
 </project>

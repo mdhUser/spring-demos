@@ -14,7 +14,8 @@ import java.util.List;
  * @email: maodihui@foxmail.com
  * @date: 2022/4/22 15:21
  */
-@Service("userService")
+
+@Service
 public class UserServiceImpl implements UserService {
 
     @Autowired
