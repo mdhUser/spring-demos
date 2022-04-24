@@ -14,7 +14,7 @@ public class TestServiceImpl implements TestService {
 
     @Override
     public String sout() throws RuntimeException {
-        int i = 1 / 0;
+
         return "hello aop";
     }
 

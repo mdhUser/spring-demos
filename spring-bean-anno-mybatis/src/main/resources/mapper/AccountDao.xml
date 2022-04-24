@@ -5,9 +5,25 @@
 <mapper namespace="org.maxwell.beananno.dao.AccountDao">
 
 
+    <update id="outMoney">
+        update account
+        set money=money - #{total}
+        where id = #{uid}
+
+    </update>
+
+    <update id="inMoney">
+        update account
+        set money=money + #{total}
+        where id = #{uid}
+    </update>
+
+
     <select id="findOne" resultType="account">
 
-       select * from account where id=#{id}
+        select *
+        from account
+        where id = #{id}
 
     </select>
 

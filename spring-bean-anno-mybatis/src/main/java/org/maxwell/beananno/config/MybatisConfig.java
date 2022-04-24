@@ -42,7 +42,6 @@ public class MybatisConfig {
 
     @Bean
     public DataSource dataSource() throws SQLException {
-
         DruidDataSource dataSource = new DruidDataSource();
         dataSource.setMaxActive(10);
         dataSource.setQueryTimeout(10);
@@ -60,8 +59,7 @@ public class MybatisConfig {
         SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
         factoryBean.setDataSource(dataSource);
         factoryBean.setTypeAliasesPackage("org.maxwell.beananno.entity");
-        Resource[] resources = new PathMatchingResourcePatternResolver()
-                .getResources("classpath:mapper/*.xml");
+        Resource[] resources = new PathMatchingResourcePatternResolver().getResources("classpath:mapper/*.xml");
         factoryBean.setMapperLocations(resources);
         return factoryBean.getObject();
     }

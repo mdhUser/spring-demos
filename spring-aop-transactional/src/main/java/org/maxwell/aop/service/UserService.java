@@ -17,28 +17,18 @@ public class UserService {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
-    @Autowired
-    private UserService userService;
-    @Autowired
-    private OrderService orderService;
 
-    @Transactional
+
+    @Transactional(rollbackFor = Exception.class)
     public void test() {
         jdbcTemplate.execute(
-                "INSERT INTO `t_user` ( `username`, `password`, `remark`, `email`) VALUES ( 'ESOK哦', 'dadanjn', '大田国之主', 'hezhiguoco@hdau.com')");
-        userService.test1();
+                "INSERT INTO `t_user` ( `username`, `password`, `remark`, `email`) VALUES ( 'ESdsOK哦', 'gfu', '大田国之主', 'hezhiguoco@hdau.com')");
     }
 
-    @Transactional(propagation = Propagation.NEVER)
+    @Transactional(propagation = Propagation.NEVER, rollbackFor = Exception.class)
     public void test1() {
         jdbcTemplate.execute(
                 "INSERT INTO `t_user` ( `username`, `password`, `remark`, `email`) VALUES ( '朱迪', 'dadanj12n', '大明国之主', 'zhudi@daming.com')");
     }
-
-
-    public void test3(){
-        System.out.println(orderService);
-    }
-
 
 }

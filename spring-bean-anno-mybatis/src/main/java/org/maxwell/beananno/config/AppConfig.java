@@ -2,6 +2,7 @@ package org.maxwell.beananno.config;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Import;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
  * @description:
@@ -12,6 +13,7 @@ import org.springframework.context.annotation.Import;
 
 
 @Import(MybatisConfig.class)
+@EnableTransactionManagement
 @ComponentScan("org.maxwell.beananno")
 public class AppConfig {
 

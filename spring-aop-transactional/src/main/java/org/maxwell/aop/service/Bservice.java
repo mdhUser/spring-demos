@@ -15,5 +15,9 @@ public class Bservice {
     @Autowired
     private Aservice aservice;
 
+    public String test() {
+        return aservice.toString();
+    }
+
 
 }

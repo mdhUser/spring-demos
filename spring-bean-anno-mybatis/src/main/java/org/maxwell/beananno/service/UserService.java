@@ -26,5 +26,11 @@ public interface UserService {
      */
     Account findAccount(long id);
 
+    /**
+     *  出账
+     */
+    void moveAccount(int uid1,int uid2,double total);
+
+
 
 }
