@@ -30,11 +30,11 @@ public class LogAspect {
 
 
 //    @Around("pointCut()")
-    public Object businessService(ProceedingJoinPoint pjp) throws Throwable {
-        Method method = ((MethodSignature) pjp.getSignature()).getMethod();
-        System.out.println("execute method:" + method.getName());
-        return pjp.proceed();
-    }
+//    public Object businessService(ProceedingJoinPoint pjp) throws Throwable {
+//        Method method = ((MethodSignature) pjp.getSignature()).getMethod();
+//        System.out.println("execute method:" + method.getName());
+//        return pjp.proceed();
+//    }
 
     /**
      * 环绕通知
@@ -48,6 +48,8 @@ public class LogAspect {
         System.out.println("-----------------------");
         System.out.println("环绕通知: 进入方法");
         Object o = pjp.proceed();
+        System.out.println("环绕通知: 退出方法");
+        System.out.println("-----------------------");
         return o;
     }
 

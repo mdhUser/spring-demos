@@ -2,6 +2,7 @@ package org.maxwell.aop;
 
 import org.maxwell.aop.config.AppConfig;
 import org.maxwell.aop.service.OrderService;
+import org.maxwell.aop.service.TestService;
 import org.maxwell.aop.service.UserService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -16,10 +17,13 @@ public class AppTest {
     public static void main(String[] args) {
 
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
-        UserService userService = context.getBean("userService",UserService.class);
-        OrderService orderService = context.getBean("orderService",OrderService.class);
-        orderService.test();
-        userService.test3();
+        TestService testService = context.getBean(TestService.class);
+        try {
+            testService.sout();
+        } catch (Exception e) {
+//            throw new RuntimeException(e);
+        }
+        System.out.println();
 
     }
 

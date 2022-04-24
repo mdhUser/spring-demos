@@ -1,9 +1,9 @@
 package org.maxwell.aop.aspect;
 
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
+
+import javax.sound.midi.Soundbank;
 
 /**
  * @description: 日志切面
@@ -15,14 +15,29 @@ import org.springframework.stereotype.Component;
 @Component
 public class LogAspect {
 
-    @Pointcut("execution(public void org.maxwell.aop.service.UserService.test())")
+    @Pointcut("execution(public String org.maxwell.aop.service.TestService.sout())")
     public void cut() {
 
     }
 
     @Before("cut()")
-    public void doBefore(){
+    public void doBefore() {
         System.out.println("advice before=======");
+    }
+
+    @AfterReturning(value = "cut()", returning = "result")
+    public void doAfterReturning(String result) {
+        System.out.println("advice after return = " + result);
+    }
+
+    @AfterThrowing(value = "cut()", throwing = "e")
+    public void doAfterThrowing(Exception e) {
+        System.out.println("advice after throwing= " + e.getMessage());
+    }
+
+    @After("cut()")
+    public void doAfter(){
+        System.out.println("advice finally =======");
     }
 
 

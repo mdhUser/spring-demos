@@ -33,8 +33,8 @@ public class APP {
         jdkProxyService.doMethod2();
         try {
             jdkProxyService.doMethod3();
-        } catch (Exception e) {
-//            e.printStackTrace();
+        } catch (Exception e){
+
         }
         System.out.println("==============================");
         CglibProxyDemoServiceImpl cglib = context.getBean(CglibProxyDemoServiceImpl.class);
@@ -43,7 +43,6 @@ public class APP {
         try {
             cglib.doMethod3();
         } catch (Exception e) {
-//            e.printStackTrace();
 
         }
 

@@ -19,8 +19,6 @@ public class ServletListener implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         System.out.println("===servlet context init===");
-//        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
-//        sce.getServletContext().setAttribute("context", context);
     }
 
     @Override
