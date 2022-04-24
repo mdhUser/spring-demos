@@ -1,9 +1,9 @@
 package org.maxwell.aop.service;
 
+import org.aspectj.lang.reflect.NoSuchPointcutException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -17,20 +17,26 @@ public class UserService {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
+    @Autowired
+    private LogService logService;
 
 
-    @Transactional(rollbackFor = Exception.class)
+    /**
+     * 事务协调员 需放在finally代码块中否则抛出异常无法被调用
+     *
+     * @throws Exception
+     */
+    @Transactional(rollbackFor = Exception.class, noRollbackFor = NoSuchPointcutException.class)
     public void test() throws Exception {
-        jdbcTemplate.execute(
-                "INSERT INTO `t_user` ( `username`, `password`, `remark`, `email`) VALUES ( 'Eason', 'gda', '香港', 'edsion@hdau.com')");
+        try {
+            jdbcTemplate.execute(
+                    "INSERT INTO `t_user` ( `username`, `password`, `remark`, `email`) VALUES ( 'Maxwell', 'gda', 'England', 'maxwell@Gmail.com')");
+//            int i = 1 / 0;
+        } finally {
+            logService.log("message1");
+        }
+
     }
 
-
-    @Transactional(propagation = Propagation.REQUIRES_NEW,
-            rollbackFor = Exception.class)
-    public void log() {
-        jdbcTemplate.execute(
-                "INSERT INTO `t_user` ( `username`, `password`, `remark`, `email`) VALUES ( '朱迪', 'dadanj12n', '大明国之主', 'zhudi@daming.com')");
-    }
 
 }
