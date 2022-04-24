@@ -20,13 +20,15 @@ public class UserService {
 
 
     @Transactional(rollbackFor = Exception.class)
-    public void test() {
+    public void test() throws Exception {
         jdbcTemplate.execute(
-                "INSERT INTO `t_user` ( `username`, `password`, `remark`, `email`) VALUES ( 'ESdsOK哦', 'gfu', '大田国之主', 'hezhiguoco@hdau.com')");
+                "INSERT INTO `t_user` ( `username`, `password`, `remark`, `email`) VALUES ( 'Eason', 'gda', '香港', 'edsion@hdau.com')");
     }
 
-    @Transactional(propagation = Propagation.NEVER, rollbackFor = Exception.class)
-    public void test1() {
+
+    @Transactional(propagation = Propagation.REQUIRES_NEW,
+            rollbackFor = Exception.class)
+    public void log() {
         jdbcTemplate.execute(
                 "INSERT INTO `t_user` ( `username`, `password`, `remark`, `email`) VALUES ( '朱迪', 'dadanj12n', '大明国之主', 'zhudi@daming.com')");
     }

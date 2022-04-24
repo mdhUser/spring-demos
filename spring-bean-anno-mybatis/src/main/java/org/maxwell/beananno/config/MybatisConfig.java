@@ -41,7 +41,7 @@ public class MybatisConfig {
 
 
     @Bean
-    public DataSource dataSource() throws SQLException {
+    public DataSource dataSource() {
         DruidDataSource dataSource = new DruidDataSource();
         dataSource.setMaxActive(10);
         dataSource.setQueryTimeout(10);
