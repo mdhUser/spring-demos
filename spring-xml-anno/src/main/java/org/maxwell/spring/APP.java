@@ -4,7 +4,6 @@ import org.maxwell.spring.bean.User;
 import org.maxwell.spring.config.AnnotationConfig;
 import org.maxwell.spring.service.JdkProxyService;
 import org.maxwell.spring.service.impl.CglibProxyDemoServiceImpl;
-import org.maxwell.spring.service.impl.JdkProxyServiceImpl;
 import org.maxwell.spring.service.impl.UserServiceImpl;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 

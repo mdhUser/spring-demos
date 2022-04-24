@@ -1,9 +1,7 @@
 package org.maxwell.aop;
 
 import org.maxwell.aop.config.AppConfig;
-import org.maxwell.aop.service.OrderService;
 import org.maxwell.aop.service.TestService;
-import org.maxwell.aop.service.UserService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**

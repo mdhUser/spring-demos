@@ -3,8 +3,6 @@ package org.maxwell.aop.aspect;
 import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
-import javax.sound.midi.Soundbank;
-
 /**
  * @description: 日志切面
  * @author: Maxwell
