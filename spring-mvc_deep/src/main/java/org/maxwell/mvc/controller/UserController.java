@@ -42,7 +42,7 @@ public class UserController {
         return "{'module':'common param'}";
     }
 
-    @GetMapping(value = "/getData")
+    @GetMapping(value = "/getData", produces = "application/json;charset=utf-8")
     public Object getData() {
         return "你好 spring";
     }

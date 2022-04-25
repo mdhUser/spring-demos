@@ -1,7 +1,7 @@
 package org.maxwell.mvc.config;
 
-import org.maxwell.mvc.interceptor.EncodingInterceptor;
-import org.springframework.context.annotation.Bean;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -14,16 +14,13 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 public class InterceptorConfig implements WebMvcConfigurer {
 
-    @Bean
-    public EncodingInterceptor encodingInterceptor() {
-        return new EncodingInterceptor();
-    }
-
+    @Autowired
+    private HandlerInterceptor encodingInterceptor;
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         //拦截全部路径
-        registry.addInterceptor(encodingInterceptor()).addPathPatterns("/**");
+        registry.addInterceptor(encodingInterceptor).addPathPatterns("/**");
         WebMvcConfigurer.super.addInterceptors(registry);
     }
 }
