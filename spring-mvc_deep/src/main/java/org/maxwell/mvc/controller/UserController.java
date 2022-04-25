@@ -22,17 +22,16 @@ public class UserController {
     }
 
     /**
-     *  @RequestParam 必须要从请求参数中获取值不然 400
-     *  集合类需要加
      * @param list
      * @return
+     * @RequestParam 必须要从请求参数中获取值不然 400
+     * 集合类需要加
      */
     @GetMapping("/listParamForJson")
     public String list(@RequestParam List<String> list) {
         System.out.println(list);
         return "{'module':'list data from json'}";
     }
-
 
 
     @GetMapping("/param")
@@ -43,7 +42,7 @@ public class UserController {
         return "{'module':'common param'}";
     }
 
-    @GetMapping(value = "/getData", produces = "application/json;charset=utf-8")
+    @GetMapping(value = "/getData")
     public Object getData() {
         return "你好 spring";
     }
@@ -54,12 +53,13 @@ public class UserController {
     }
 
     /**
-     *  JSON反序列成Java对象要加 @RequestBody
+     * JSON反序列成Java对象要加 @RequestBody
+     *
      * @param user
      * @return
      */
     @PostMapping(value = "/getJsonToPojo1")
-    public Object getJsonToPojo1(@RequestBody User user){
+    public Object getJsonToPojo1(@RequestBody User user) {
         return user;
     }
 
