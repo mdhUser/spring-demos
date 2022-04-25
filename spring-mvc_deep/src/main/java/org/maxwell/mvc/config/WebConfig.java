@@ -2,6 +2,7 @@ package org.maxwell.mvc.config;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 /**
  * @description:
@@ -9,9 +10,11 @@ import org.springframework.context.annotation.Configuration;
  * @email: maodihui@foxmail.com
  * @date: 2022/4/25 10:01
  */
+
 @Configuration
-@ComponentScan("org.maxwell.mvc")
-public class AppConfig {
+@EnableWebMvc
+@ComponentScan("org.maxwell.mvc.controller")
+public class WebConfig {
 
 
 

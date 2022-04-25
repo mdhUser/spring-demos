@@ -19,6 +19,7 @@
         <module>spring-ioc</module>
         <module>spring-bean-lifecycle</module>
         <module>spring-bean-anno-mybatis</module>
+        <module>spring-mvc_deep</module>
     </modules>
     <packaging>pom</packaging>
     <name>spring-demos</name>
@@ -50,14 +51,14 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>5.3.16</version>
+            <version>5.3.19</version>
         </dependency>
 
         <!-- spring web -->
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-            <version>5.3.16</version>
+            <artifactId>spring-webmvc</artifactId>
+            <version>5.3.19</version>
         </dependency>
 
         <!--aspectj-->

@@ -1,7 +1,6 @@
 package org.maxwell.mvc.controller;
 
 import org.maxwell.mvc.entity.User;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -10,9 +9,9 @@ import org.springframework.web.bind.annotation.*;
  * @email: maodihui@foxmail.com
  * @date: 2022/4/25 17:08
  */
-@Controller
+@RestController
 @RequestMapping("/rest")
-public class RestController {
+public class Rest_Controller {
 
 
     @GetMapping("/get/{id}")
