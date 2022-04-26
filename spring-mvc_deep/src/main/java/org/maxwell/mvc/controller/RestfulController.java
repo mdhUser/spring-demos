@@ -6,6 +6,8 @@ import org.maxwell.mvc.entity.Address;
 import org.maxwell.mvc.entity.User;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -62,7 +64,7 @@ public class RestfulController {
     }
 
     @GetMapping("/user")
-    public Object find(@RequestBody User user) {
+    public Object find(@RequestBody User user, HttpServletRequest request) {
 
         System.out.println(user);
         User user1 = new User();
@@ -75,7 +77,7 @@ public class RestfulController {
     }
 
     @PostMapping("/map")
-    public Object map(@RequestBody Map<String, Object> params) {
+    public Object map(@RequestBody HashMap<String, Object> params) {
 
         String name = (String) params.get("name");
         Integer age = (Integer) params.get("age");

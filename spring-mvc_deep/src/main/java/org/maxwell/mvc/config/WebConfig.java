@@ -20,12 +20,10 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @ComponentScan({"org.maxwell.mvc.controller"})
 public class WebConfig {
 
-
     @Bean
     public EncodingInterceptor encodingInterceptor() {
         return new EncodingInterceptor();
     }
-
 
 
 }
