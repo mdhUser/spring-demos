@@ -20,6 +20,7 @@
         <module>spring-bean-lifecycle</module>
         <module>spring-bean-anno-mybatis</module>
         <module>spring-mvc_deep</module>
+        <module>spring-ssm</module>
     </modules>
     <packaging>pom</packaging>
     <name>spring-demos</name>
