@@ -1,5 +1,6 @@
 package org.maxwell.ssm.service.impl;
 
+import org.maxwell.ssm.entity.constant.ResponseStatus;
 import org.maxwell.ssm.entity.vo.Book;
 import org.maxwell.ssm.error.BusinessException;
 import org.maxwell.ssm.mapper.BookMapper;
@@ -32,8 +33,11 @@ public class BookServiceImpl implements BookService {
     @Override
     @Transactional(rollbackFor = BusinessException.class)
     public int update(Book book) {
-        int i =10/0;
-        return bookMapper.update(book);
+        int update = bookMapper.update(book);
+        if (update == 0) {
+            throw new BusinessException(ResponseStatus.UPDATE_ERROR.getCode(), ResponseStatus.UPDATE_ERROR.getMessage());
+        }
+        return update;
     }
 
     @Override
