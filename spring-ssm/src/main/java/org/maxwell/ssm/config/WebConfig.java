@@ -13,9 +13,8 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @EnableWebMvc
 @Configuration
-@ComponentScan("org.maxwell.ssm.controller")
+@ComponentScan({"org.maxwell.ssm.controller", "org.maxwell.ssm.advice"})
 public class WebConfig {
-
 
 
 }
