@@ -5,6 +5,7 @@ import org.maxwell.ssm.entity.vo.Book;
 import org.maxwell.ssm.error.BusinessException;
 import org.maxwell.ssm.mapper.BookMapper;
 import org.maxwell.ssm.service.BookService;
+import org.maxwell.ssm.utils.AssertUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -34,9 +35,7 @@ public class BookServiceImpl implements BookService {
     @Transactional(rollbackFor = BusinessException.class)
     public int update(Book book) {
         int update = bookMapper.update(book);
-        if (update == 0) {
-            throw new BusinessException(ResponseStatus.UPDATE_ERROR.getCode(), ResponseStatus.UPDATE_ERROR.getMessage());
-        }
+        AssertUtil.isTrue(update <= 0).throwMessage(ResponseStatus.UPDATE_ERROR.getCode(), ResponseStatus.UPDATE_ERROR.getMessage());
         return update;
     }
 
