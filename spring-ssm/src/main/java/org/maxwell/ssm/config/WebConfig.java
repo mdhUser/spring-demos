@@ -23,11 +23,14 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/pages/**").addResourceLocations("/pages/");
+        registry.addResourceHandler("/js/**").addResourceLocations("/js/");
+        registry.addResourceHandler("/css/**").addResourceLocations("/css/");
+        registry.addResourceHandler("/plugins/**").addResourceLocations("/plugins/");
     }
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new MyInterceptors()).addPathPatterns("/books")
+        registry.addInterceptor(new MyInterceptors()).addPathPatterns("/books/**")
                 .excludePathPatterns("/books/info");
     }
 

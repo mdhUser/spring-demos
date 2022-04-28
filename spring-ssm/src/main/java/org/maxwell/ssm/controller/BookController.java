@@ -54,5 +54,9 @@ public class BookController {
         return list != null ? ResponseResult.success(list) : ResponseResult.failed(ResponseStatus.SELECT_ERROR.getCode(), ResponseStatus.SELECT_ERROR.getMessage());
     }
 
+    @GetMapping(value = "/str",produces = "application/json;charset=utf-8")
+    public Object str() {
+        return "你好 MVC!";
+    }
 
 }

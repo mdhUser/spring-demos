@@ -42,4 +42,20 @@ public class AssertUtil {
         };
     }
 
+    /**
+     * 非空判断
+     *
+     * @param o
+     * @return
+     */
+    public static PresentOrElseHandler isPresent(Object o) {
+        return (consumer, runnable) -> {
+            if (o == null) {
+                runnable.run();
+            } else {
+                consumer.accept(o);
+            }
+        };
+    }
+
 }
