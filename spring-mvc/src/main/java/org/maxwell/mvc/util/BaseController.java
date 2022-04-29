@@ -17,7 +17,7 @@ public interface BaseController {
 
     default public <T> T getBean(HttpServletRequest request,Class<T> clazz) throws IOException {
         InputStream inputStream = request.getInputStream();
-        T object = JSON.parseObject(inputStream, clazz);
+        T object = JSON.parseObject(String.valueOf(inputStream), clazz);
         return object;
     }
 
