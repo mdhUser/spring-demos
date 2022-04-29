@@ -16,7 +16,7 @@ import java.util.List;
  * @date: 2022/4/27 21:40
  */
 @RestController
-@RequestMapping("/book")
+@RequestMapping("/books")
 public class BookController {
 
 

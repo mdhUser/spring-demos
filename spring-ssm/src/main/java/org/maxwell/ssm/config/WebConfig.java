@@ -1,6 +1,7 @@
 package org.maxwell.ssm.config;
 
 import org.maxwell.ssm.interceptor.MyInterceptors;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -30,8 +31,14 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new MyInterceptors()).addPathPatterns("/books/**")
+        registry.addInterceptor(myInterceptors()).addPathPatterns("/books/**")
                 .excludePathPatterns("/books/info");
+    }
+
+
+    @Bean
+    public MyInterceptors myInterceptors() {
+        return new MyInterceptors();
     }
 
 
